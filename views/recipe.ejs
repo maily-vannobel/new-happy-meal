@@ -1,0 +1,20 @@
+<!-- views/recipe.ejs -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Recettes</title>
+</head>
+<body>
+    <h1>Liste des Recettes</h1>
+    <ul>
+        <% recipes.forEach(recipe => { %>
+            <li>
+                <a href="/recipes/<%= recipe.recipe_id %>">
+                    <%= recipe.name %>
+                </a>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
