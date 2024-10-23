@@ -20,8 +20,7 @@ class RecipeController {
             if (!recipe) {
                 return res.status(404).send('Recette non trouvée');
             }
-            // Si la recette est trouvée, rend la vue 'recipe_detail' avec les données de la recette
-            res.render('recipe_detail', { recipe });
+            res.render('recipeDetails', { recipe });
         } catch (error) {
             console.error('Erreur lors de la récupération de la recette :', error);
             res.status(500).send('Erreur lors de la récupération de la recette');
