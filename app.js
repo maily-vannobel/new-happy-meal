@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(helmet());
 app.set('view engine', 'ejs');
-
+app.use(express.static('assets'));
 
 // Page d'accueil
 app.get('/', (req, res) => {
