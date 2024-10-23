@@ -4,17 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Liste des Recettes</title>
+    <!-- <link rel="stylesheet" href="/styles/_global.css"> --> <!-- À réactiver si nécessaire -->
+    <link rel="stylesheet" href="/styles/recipe.css"> <!-- CSS spécifique à la page -->
 </head>
 <body>
-    <h1>Liste des Recettes</h1>
-    <ul>
-        <% recipes.forEach(recipe => { %>
-            <li>
-                <a href="/recipes/<%= recipe.recipe_id %>">
+    <%- include('components/header') %>
+
+    <h1 class="recipe-title">Liste des Recettes</h1>
+
+    <ul class="recipe-list">
+        <% recipes.forEach(recipe => { 
+            // Transforme nom de la recette en un format utilisable pour le lien de l'image
+            const formatImageName = (name) => {
+                return name.toLowerCase()
+                           .normalize('NFD') 
+                           .replace(/[\u0300-\u036f]/g, '') 
+                           .replace(/\s+/g, '-') 
+                           .replace(/'/g, '');  
+            };
+        %>
+            <li class="recipe-item">
+                <img src="/images/<%= recipe.type %>/<%= formatImageName(recipe.name) %>.jpg" alt="Image de <%= recipe.name %>" class="recipe-image">
+                <a href="/recipes/<%= recipe.recipe_id %>" class="recipe-link">
                     <%= recipe.name %>
                 </a>
             </li>
         <% }) %>
     </ul>
+
+    <%- include('components/footer') %>
 </body>
 </html>

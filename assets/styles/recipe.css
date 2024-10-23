@@ -1,0 +1,31 @@
+.recipe-image {
+    width: 100%;
+    height: auto;
+    max-width: 300px; 
+    display: block;
+    margin-bottom: 10px;
+}
+.recipe-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recipe-item {
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+
+.recipe-link {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.recipe-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
