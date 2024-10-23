@@ -22,6 +22,15 @@ class RecipeModel {
       throw error;
     }
   }
+
+  // 3:Rechercher des recettes
+  static async searchRecipes(query) {
+    const likeQuery = `%${query}%`;
+    const searchQuery = `SELECT recipe_id, name FROM recipes WHERE name LIKE ?`;
+    const [rows] = await db.execute(searchQuery, [likeQuery]);
+    return rows;
+}
+
 }
 
 export default RecipeModel;
