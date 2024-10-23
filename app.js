@@ -1,17 +1,23 @@
-const express = require('express');
-const helmet = require('helmet');
+import express from 'express';
+import helmet from 'helmet';
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Utiliser Helmet pour la sécurité
 app.use(helmet());
+app.set('view engine', 'ejs');
 
-// Route de base
+
+// Page d'accueil
 app.get('/', (req, res) => {
-    res.send('Welcome to HappyMeal!');
+    res.render('home'); 
 });
 
-// Lancement du serveur
+// routes des recettes
+import recipeRoutes from './routes/recipeRoutes.js';
+app.use('/recipes', recipeRoutes);
+
+// Lancer le serveur
 app.listen(PORT, () => {
     console.log(`CA TOURNE SUR ${PORT}`);
 });
