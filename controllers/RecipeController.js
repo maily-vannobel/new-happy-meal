@@ -1,5 +1,5 @@
-CONTROLLER
 import RecipeModel from '../models/RecipeModel.js';
+import IngredientModel from '../models/IngredientModel.js'; // Importation du modèle des ingrédients
 
 class RecipeController {
     
@@ -21,7 +21,12 @@ class RecipeController {
             if (!recipe) {
                 return res.status(404).send('Recette non trouvée');
             }
-            res.render('recipeDetails', { recipe });
+
+            // Récupérer les ingrédients associés à la recette
+            const ingredients = await IngredientModel.getIngredientsByRecipe(req.params.id);
+
+            // Passer la recette et les ingrédients à la vue
+            res.render('recipeDetails', { recipe, ingredients });
         } catch (error) {
             console.error('Erreur lors de la récupération de la recette :', error);
             res.status(500).send('Erreur lors de la récupération de la recette');
