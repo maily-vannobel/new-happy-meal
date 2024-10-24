@@ -1,0 +1,7 @@
+.recipe-image {
+    width: 100%;
+    height: auto;
+    max-width: 300px; 
+    display: block;
+    margin-bottom: 10px;
+}

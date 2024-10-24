@@ -1,0 +1,9 @@
+.recipe-detail {
+    max-width: 800px;
+    margin: auto;
+}
+
+.recipe-image-detail {
+    display: block;
+    margin: auto;
+}
