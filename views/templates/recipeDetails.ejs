@@ -1,0 +1,22 @@
+<h1 class="text-center my-4"><%= recipe.name %></h1>
+
+<div class="recipe-detail container">
+    <img src="/images/<%= recipe.type %>/<%= recipe.image %>" alt="Image de <%= recipe.name %>" class="img-fluid mb-3 recipe-image-detail" style="max-width: 400px;">
+
+    <h2>Description</h2>
+    <p><%= recipe.description %></p>
+
+    <h2>Temps de préparation : <%= recipe.prep_time %> minutes</h2>
+    <h2>Temps de cuisson : <%= recipe.cook_time %> minutes</h2>
+    <h2>Portions : <%= recipe.servings %></h2>
+
+    <h2>Ingrédients</h2>
+    <ul class="list-group">
+        <% ingredients.forEach(ingredient => { %>
+            <li class="list-group-item"><%= ingredient.quantity %> <%= ingredient.unit %> de <%= ingredient.name %></li>
+        <% }); %>
+    </ul>
+
+    <h2>Instructions</h2>
+    <pre><%= recipe.instructions %></pre>
+</div>
