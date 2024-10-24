@@ -1,0 +1,24 @@
+<h1 class="text-center my-4">Liste des Recettes</h1>
+
+<div class="row">
+    <% recipes.forEach(recipe => { 
+        const formatImageName = (name) => {
+            return name.toLowerCase()
+                       .normalize('NFD') 
+                       .replace(/[\u0300-\u036f]/g, '') 
+                       .replace(/\s+/g, '-') 
+                       .replace(/'/g, '');  
+        };
+    %>
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="/images/<%= recipe.type %>/<%= formatImageName(recipe.name) %>.jpg" alt="Image de <%= recipe.name %>" class="card-img-top">
+            <div class="card-body">
+                <a href="/recipes/<%= recipe.recipe_id %>" class="h5 card-title">
+                    <%= recipe.name %>
+                </a>
+            </div>
+        </div>
+    </div>
+    <% }) %>
+</div>

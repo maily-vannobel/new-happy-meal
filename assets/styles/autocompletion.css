@@ -1,0 +1,20 @@
+#searchResults {
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+}
+
+.autocomplete-result {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.autocomplete-result:hover {
+    background-color: #f0f0f0;
+}
+
+.autocomplete-no-result {
+    padding: 10px;
+    color: red;
+}
