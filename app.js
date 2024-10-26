@@ -39,6 +39,16 @@ app.use('/recipes', recipeRoutes);
 // Routes des ingrédients
 app.use('/ingredients', ingredientRoutes);
 
+// app.js
+app.get('/calendar', (req, res) => {
+  res.render('layouts/base', {
+      title: 'Calendrier',
+      body: 'calendar',
+      jsFile: 'calendar' 
+  });
+});
+
+
 // Gestion des erreurs 404
 app.use((req, res) => {
     res.status(404).send("Page non trouvée");
