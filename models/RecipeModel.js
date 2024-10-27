@@ -1,7 +1,7 @@
 import db from '../config/db.js';
 
 class RecipeModel {
-  // 1: Récupérer toutes les recettes
+  //? 1: Récupérer toutes les recettes
   static async getAllRecipes() {
     try {
       const [rows] = await db.query('SELECT * FROM recipes');
@@ -12,7 +12,7 @@ class RecipeModel {
     }
   }
 
-  // 2: Récupérer recette par ID
+  //? 2: Récupérer recette par ID
   static async getRecipeById(id) {
     try {
       const [rows] = await db.query('SELECT * FROM recipes WHERE recipe_id = ?', [id]);
@@ -23,7 +23,7 @@ class RecipeModel {
     }
   }
 
-  // 3:Rechercher des recettes
+  //? 3:Rechercher des recettes
   static async searchRecipes(query) {
     const likeQuery = `%${query}%`;
     const searchQuery = `SELECT recipe_id, name FROM recipes WHERE name LIKE ?`;
